@@ -1,0 +1,236 @@
+"use client";
+
+import React from "react";
+import {
+  Camera,
+  Heart,
+  Zap,
+  Sparkles,
+  Volume2,
+  Sliders,
+  Check,
+  ShieldCheck,
+} from "lucide-react";
+
+export const CameraSyncMockup: React.FC = () => {
+  return (
+    <div className="relative w-full flex items-center justify-center select-none py-2 lg:py-4">
+      {/* Background Soft Glow Effect */}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 sm:w-108 sm:h-108 rounded-full bg-gradient-to-tr from-pastel-pink/40 via-pastel-purple/30 to-pastel-blue/40 blur-3xl -z-10 opacity-70 pointer-events-none"
+        aria-hidden="true"
+      />
+
+      {/* Floating Decorative Accessories */}
+      <div
+        className="absolute -top-4 -right-2 z-20 hidden sm:flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 border border-pastel-pink shadow-card text-xs font-semibold text-primary-text backdrop-blur-xs"
+        aria-hidden="true"
+      >
+        <Heart className="w-3.5 h-3.5 text-coral fill-coral" />
+        <span className="text-[11px]">Millisecond Flash Sync</span>
+      </div>
+
+      <div
+        className="absolute -bottom-3 -left-3 z-20 hidden sm:flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 border border-border-primary shadow-card text-xs font-semibold text-secondary-text backdrop-blur-xs"
+        aria-hidden="true"
+      >
+        <Sparkles className="w-3.5 h-3.5 text-coral" />
+        <span className="text-[11px]">1080p Zero-Compression</span>
+      </div>
+
+      {/* MAIN WHITE PRODUCT PANEL CONTAINER */}
+      <div className="sync-mockup-panel relative w-full max-w-[560px] bg-white rounded-3xl p-4 sm:p-5 lg:p-6 border border-border-primary/80 shadow-elevated transition-all duration-500 hover:-translate-y-1 hover:shadow-photo group rotate-subtle-left">
+        {/* PRODUCT HEADER BAR */}
+        <div className="flex items-center justify-between pb-3 sm:pb-3.5 border-b border-border-soft/70 mb-3.5 sm:mb-4">
+          {/* Left: Window Dots & Title */}
+          <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#FF605C]" />
+              <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
+              <span className="w-2.5 h-2.5 rounded-full bg-[#27C93F]" />
+            </div>
+            <span className="text-xs font-bold text-primary-text tracking-tight ml-1 sm:ml-2">
+              Two Hearts Live Studio
+            </span>
+            <span className="text-[10px] font-semibold text-muted-text px-1.5 py-0.5 rounded bg-cream border border-border-soft hidden sm:inline-block">
+              WebRTC P2P
+            </span>
+          </div>
+
+          {/* Right: Live Sync Pill Badge */}
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-pastel-green text-pastel-green-text text-[10px] sm:text-xs font-bold tracking-wider uppercase border border-success/20">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-success"></span>
+            </span>
+            <span>LIVE SYNC</span>
+          </div>
+        </div>
+
+        {/* CAMERA PREVIEWS CONTAINER */}
+        <div className="relative my-2 sm:my-3">
+          {/* CENTRAL SYNCHRONIZATION INDICATOR BADGE (OVERLAID) */}
+          <div className="sync-center-badge absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30 flex flex-col items-center">
+            <div className="relative bg-white rounded-full p-1.5 sm:p-2 border-2 border-coral/30 shadow-photo flex items-center justify-center gap-1 sm:gap-1.5 px-3 sm:px-4 py-1.5">
+              {/* Outer pulsing ring */}
+              <span className="absolute inset-0 rounded-full border border-coral animate-ping opacity-35 pointer-events-none" />
+              
+              <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-pastel-pink flex items-center justify-center text-coral shrink-0">
+                <Zap className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-coral" />
+              </div>
+              <div className="flex flex-col items-start leading-none">
+                <span className="text-[10px] sm:text-xs font-extrabold text-coral tracking-wider uppercase">
+                  SYNCED
+                </span>
+                <span className="text-[9px] text-muted-text font-medium">
+                  0.00s LAG
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* TWO SIDE-BY-SIDE CAMERA PREVIEWS */}
+          <div className="grid grid-cols-2 gap-2.5 sm:gap-4 items-stretch">
+            {/* LEFT CAMERA PREVIEW (REMOTE CAM / ALEX) */}
+            <div className="sync-cam-preview relative aspect-[3.5/4] sm:aspect-[4/4.4] rounded-2xl bg-gradient-to-b from-blush-primary via-blush-soft to-pastel-pink/30 border border-border-primary/60 p-2.5 sm:p-3.5 flex flex-col justify-between overflow-hidden shadow-xs">
+              {/* Viewfinder Corner Crosshairs */}
+              <div className="absolute top-2 left-2 w-2.5 h-2.5 border-t-2 border-l-2 border-coral/40 rounded-tl-xs pointer-events-none" />
+              <div className="absolute top-2 right-2 w-2.5 h-2.5 border-t-2 border-r-2 border-coral/40 rounded-tr-xs pointer-events-none" />
+              <div className="absolute bottom-2 left-2 w-2.5 h-2.5 border-b-2 border-l-2 border-coral/40 rounded-bl-xs pointer-events-none" />
+              <div className="absolute bottom-2 right-2 w-2.5 h-2.5 border-b-2 border-r-2 border-coral/40 rounded-br-xs pointer-events-none" />
+
+              {/* Grid Lines Pattern */}
+              <div className="absolute inset-0 bg-[radial-gradient(var(--coral-pink)_1px,transparent_1px)] [background-size:14px_14px] opacity-15 pointer-events-none" />
+
+              {/* Top Metadata Header */}
+              <div className="relative z-10 flex items-center justify-between gap-1">
+                <div className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md bg-white/90 border border-border-primary/70 text-[9px] sm:text-[10px] font-bold text-primary-text">
+                  <span className="w-1.5 h-1.5 rounded-full bg-coral animate-pulse" />
+                  <span>LEFT CAM</span>
+                </div>
+                <span className="text-[9px] font-semibold text-secondary-text bg-white/75 px-1.5 py-0.5 rounded-md border border-border-soft">
+                  ALEX
+                </span>
+              </div>
+
+              {/* Center Photographic Subject Visual */}
+              <div className="relative z-10 my-auto flex flex-col items-center justify-center text-center py-2">
+                <div className="relative w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gradient-to-tr from-pastel-pink via-white to-blush-primary p-1 shadow-xs border border-coral/20 flex items-center justify-center mb-1.5">
+                  <div className="w-full h-full rounded-full bg-blush-primary flex items-center justify-center text-coral text-lg sm:text-2xl font-bold">
+                    🌸
+                  </div>
+                  <div className="absolute -bottom-1 -right-1 bg-white rounded-full p-0.5 shadow-xs border border-pastel-pink">
+                    <Heart className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-coral fill-coral" />
+                  </div>
+                </div>
+                <span className="text-[10px] sm:text-xs font-bold text-primary-text">
+                  NYC Camera
+                </span>
+                <span className="text-[9px] text-muted-text font-medium">
+                  Ready to Capture
+                </span>
+              </div>
+
+              {/* Bottom Metadata & Controls */}
+              <div className="relative z-10 flex items-center justify-between pt-1 border-t border-coral/10">
+                <div className="flex items-center gap-1 text-[9px] text-secondary-text font-medium">
+                  <Volume2 className="w-2.5 h-2.5 text-coral" />
+                  <span className="hidden sm:inline">Audio Sync</span>
+                </div>
+                <span className="text-[9px] font-mono text-muted-text">
+                  1080p HQ
+                </span>
+              </div>
+            </div>
+
+            {/* RIGHT CAMERA PREVIEW (LOCAL CAM / YOU) */}
+            <div className="sync-cam-preview relative aspect-[3.5/4] sm:aspect-[4/4.4] rounded-2xl bg-gradient-to-b from-lavender via-lavender-blue to-pastel-purple/30 border border-border-primary/60 p-2.5 sm:p-3.5 flex flex-col justify-between overflow-hidden shadow-xs">
+              {/* Viewfinder Corner Crosshairs */}
+              <div className="absolute top-2 left-2 w-2.5 h-2.5 border-t-2 border-l-2 border-pastel-purple-text/40 rounded-tl-xs pointer-events-none" />
+              <div className="absolute top-2 right-2 w-2.5 h-2.5 border-t-2 border-r-2 border-pastel-purple-text/40 rounded-tr-xs pointer-events-none" />
+              <div className="absolute bottom-2 left-2 w-2.5 h-2.5 border-b-2 border-l-2 border-pastel-purple-text/40 rounded-bl-xs pointer-events-none" />
+              <div className="absolute bottom-2 right-2 w-2.5 h-2.5 border-b-2 border-r-2 border-pastel-purple-text/40 rounded-br-xs pointer-events-none" />
+
+              {/* Grid Lines Pattern */}
+              <div className="absolute inset-0 bg-[radial-gradient(var(--accent-purple-text)_1px,transparent_1px)] [background-size:14px_14px] opacity-15 pointer-events-none" />
+
+              {/* Top Metadata Header */}
+              <div className="relative z-10 flex items-center justify-between gap-1">
+                <div className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md bg-white/90 border border-border-primary/70 text-[9px] sm:text-[10px] font-bold text-primary-text">
+                  <span className="w-1.5 h-1.5 rounded-full bg-success animate-pulse" />
+                  <span>RIGHT CAM</span>
+                </div>
+                <span className="text-[9px] font-semibold text-pastel-purple-text bg-white/75 px-1.5 py-0.5 rounded-md border border-border-soft">
+                  YOU
+                </span>
+              </div>
+
+              {/* Center Photographic Subject Visual */}
+              <div className="relative z-10 my-auto flex flex-col items-center justify-center text-center py-2">
+                <div className="relative w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gradient-to-tr from-pastel-purple via-white to-lavender p-1 shadow-xs border border-pastel-purple/30 flex items-center justify-center mb-1.5">
+                  <div className="w-full h-full rounded-full bg-lavender flex items-center justify-center text-pastel-purple-text text-lg sm:text-2xl font-bold">
+                    ✨
+                  </div>
+                  <div className="absolute -bottom-1 -right-1 bg-white rounded-full p-0.5 shadow-xs border border-pastel-purple">
+                    <Sparkles className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-pastel-purple-text" />
+                  </div>
+                </div>
+                <span className="text-[10px] sm:text-xs font-bold text-primary-text">
+                  London Camera
+                </span>
+                <span className="text-[9px] text-muted-text font-medium">
+                  Live Viewfinder
+                </span>
+              </div>
+
+              {/* Bottom Metadata & Controls */}
+              <div className="relative z-10 flex items-center justify-between pt-1 border-t border-pastel-purple/20">
+                <div className="flex items-center gap-1 text-[9px] text-secondary-text font-medium">
+                  <Sliders className="w-2.5 h-2.5 text-pastel-purple-text" />
+                  <span className="hidden sm:inline">Light Active</span>
+                </div>
+                <span className="text-[9px] font-mono text-muted-text">
+                  60 FPS
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* BOTTOM SHUTTER CONTROL PANEL */}
+        <div className="mt-3.5 sm:mt-4 pt-3 border-t border-border-soft/70 flex items-center justify-between px-1">
+          {/* Left status label */}
+          <div className="flex items-center gap-1.5 text-xs text-secondary-text font-medium">
+            <span className="w-2 h-2 rounded-full bg-success" />
+            <span className="hidden sm:inline">Auto Selfie Timer:</span>
+            <span className="font-bold text-primary-text">3s Flash</span>
+          </div>
+
+          {/* Center Main Shutter Trigger Button */}
+          <div className="relative flex items-center justify-center">
+            {/* Subtle outer breathing ring */}
+            <div className="absolute w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-coral/20 animate-ping opacity-30 pointer-events-none" />
+            
+            <button
+              type="button"
+              aria-label="Synchronized Shutter Trigger"
+              className="relative w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-pastel-pink border-2 border-coral p-1 flex items-center justify-center shadow-md hover:scale-105 active:scale-95 transition-all duration-300 group/btn cursor-pointer"
+            >
+              <div className="w-full h-full rounded-full bg-coral group-hover/btn:bg-coral-hover flex items-center justify-center text-white shadow-xs transition-colors">
+                <Camera className="w-4 h-4 sm:w-5 sm:h-5 fill-white/20" />
+              </div>
+            </button>
+          </div>
+
+          {/* Right photo counter badge */}
+          <div className="flex items-center gap-1 text-xs text-secondary-text font-medium">
+            <span className="hidden sm:inline text-muted-text">Strip:</span>
+            <span className="px-2 py-0.5 rounded-full bg-pastel-yellow text-pastel-yellow-text font-bold text-[10px] sm:text-xs">
+              4 Shots
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};

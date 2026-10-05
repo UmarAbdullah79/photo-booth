@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+:root {
+  /* Background Colors */
+  --bg-cream: #FFF9F7;
+  --bg-blush-primary: #FFF0F3;
+  --bg-blush-soft: #FCEFF4;
+  --bg-lavender: #F7F2FB;
+  --bg-lavender-blue: #F2F4FC;
+  --bg-white: #FFFFFF;
+
+  /* Text Colors */
+  --text-primary: #292326;
+  --text-secondary: #70676B;
+  --text-muted: #968B90;
+  --text-subtle: #B1A5AA;
+
+  /* Primary Brand Coral Pink */
+  --coral-pink: #F45F7D;
+  --coral-hover: #E94E70;
+  --coral-dark: #C93E5C;
+
+  /* Pastel Accent Colors */
+  --accent-pink: #FFE0E8;
+  --accent-purple: #EEDCFA;
+  --accent-purple-text: #7E3A94;
+  --accent-yellow: #FFF0B8;
+  --accent-yellow-text: #8A6D0B;
+  --accent-green: #DDF3E8;
+  --accent-green-text: #2E6B4F;
+  --accent-blue: #E2F0FA;
+  --accent-blue-text: #2B5C8F;
+
+  /* Borders */
+  --border-primary: #EEDFE4;
+  --border-soft: #F5E7EB;
+
+  /* Status */
+  --color-success: #58A77F;
+
+  /* Shadows */
+  --shadow-card: 0 8px 30px rgba(50, 25, 35, 0.06);
+  --shadow-elevated: 0 12px 40px rgba(50, 25, 35, 0.08);
+  --shadow-photo: 0 10px 35px rgba(40, 25, 30, 0.10);
+}
+
+@theme {
+  --font-sans: var(--font-dm-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Colors */
+  --color-cream: #FFF9F7;
+  --color-blush-primary: #FFF0F3;
+  --color-blush-soft: #FCEFF4;
+  --color-lavender: #F7F2FB;
+  --color-lavender-blue: #F2F4FC;
+
+  --color-primary-text: #292326;
+  --color-secondary-text: #70676B;
+  --color-muted-text: #968B90;
+  --color-subtle-text: #B1A5AA;
+
+  --color-coral: #F45F7D;
+  --color-coral-hover: #E94E70;
+  --color-coral-dark: #C93E5C;
+
+  --color-pastel-pink: #FFE0E8;
+  --color-pastel-purple: #EEDCFA;
+  --color-pastel-purple-text: #7E3A94;
+  --color-pastel-yellow: #FFF0B8;
+  --color-pastel-yellow-text: #8A6D0B;
+  --color-pastel-green: #DDF3E8;
+  --color-pastel-green-text: #2E6B4F;
+  --color-pastel-blue: #E2F0FA;
+  --color-pastel-blue-text: #2B5C8F;
+
+  --color-border-primary: #EEDFE4;
+  --color-border-soft: #F5E7EB;
+
+  --color-success: #58A77F;
+
+  /* Shadows */
+  --shadow-card: 0 8px 30px rgba(50, 25, 35, 0.06);
+  --shadow-elevated: 0 12px 40px rgba(50, 25, 35, 0.08);
+  --shadow-photo: 0 10px 35px rgba(40, 25, 30, 0.10);
+
+  /* Radius System */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-2xl: 28px;
+  --radius-pill: 9999px;
+}
+
+body {
+  background-color: var(--bg-cream);
+  color: var(--text-primary);
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Utilities for Editorial Photo Card Rotations & Soft Aesthetics */
+.rotate-slight-left {
+  transform: rotate(-2deg);
+}
+
+.rotate-slight-right {
+  transform: rotate(2deg);
+}
+
+.rotate-subtle-left {
+  transform: rotate(-1deg);
+}
+
+.rotate-subtle-right {
+  transform: rotate(1deg);
+}
+
+/* Smooth Focus Ring */
+*:focus-visible {
+  outline: 2px solid var(--coral-pink);
+  outline-offset: 2px;
+}
