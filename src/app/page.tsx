@@ -4,6 +4,9 @@ import { Hero } from "@/components/home/Hero";
 import { HowItWorks } from "@/components/home/HowItWorks";
 import { InspirationGallery } from "@/components/home/InspirationGallery";
 import { SynchronizedCameras } from "@/components/home/SynchronizedCameras";
+import { CustomizationSection } from "@/components/home/CustomizationSection";
+import { HighQualitySection } from "@/components/home/HighQualitySection";
+import { FinalCTA } from "@/components/home/FinalCTA";
 
 export default function Home() {
   return (
@@ -24,6 +27,15 @@ export default function Home() {
 
         {/* 5. Zero-Lag Precision Feature Section */}
         <SynchronizedCameras />
+
+        {/* 6. Endless Customization Feature Section */}
+        <CustomizationSection />
+
+        {/* 7. Always High Quality / Download Feature Section */}
+        <HighQualitySection />
+
+        {/* 8. Final CTA Section */}
+        <FinalCTA />
       </main>
     </div>
   );
