@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { Section } from "@/components/ui/Section";
-import { Container } from "@/components/ui/Container";
-import { Badge } from "@/components/ui/Badge";
+import { Section } from "@/app/components/ui/Section";
+import { Container } from "@/app/components/ui/Container";
+import { Badge } from "@/app/components/ui/Badge";
 import {
   Sparkles,
   Sliders,
@@ -96,8 +96,16 @@ const CustomizationMockup: React.FC<{ className?: string }> = ({
 
   const frameOptions: { id: FramePreset; name: string; previewBg: string }[] = [
     { id: "classic", name: "Classic", previewBg: "bg-white border-gray-300" },
-    { id: "polaroid", name: "Polaroid", previewBg: "bg-white border-b-4 border-gray-400" },
-    { id: "y2k", name: "Y2K", previewBg: "bg-gradient-to-r from-pink-200 to-purple-200 border-pink-400" },
+    {
+      id: "polaroid",
+      name: "Polaroid",
+      previewBg: "bg-white border-b-4 border-gray-400",
+    },
+    {
+      id: "y2k",
+      name: "Y2K",
+      previewBg: "bg-gradient-to-r from-pink-200 to-purple-200 border-pink-400",
+    },
     { id: "film", name: "Film", previewBg: "bg-gray-900 border-gray-700" },
   ];
 
@@ -182,8 +190,8 @@ const CustomizationMockup: React.FC<{ className?: string }> = ({
                         idx % 3 === 0
                           ? "from-pastel-pink/60 via-white to-pastel-purple/50"
                           : idx % 3 === 1
-                          ? "from-pastel-yellow/60 via-white to-pastel-pink/50"
-                          : "from-pastel-blue/60 via-white to-pastel-green/50"
+                            ? "from-pastel-yellow/60 via-white to-pastel-pink/50"
+                            : "from-pastel-blue/60 via-white to-pastel-green/50"
                       }`}
                     />
 
@@ -206,8 +214,8 @@ const CustomizationMockup: React.FC<{ className?: string }> = ({
                         {idx === 0
                           ? "Alex & Sam"
                           : idx === 1
-                          ? "NYC ➔ London"
-                          : "Sweet Memory"}
+                            ? "NYC ➔ London"
+                            : "Sweet Memory"}
                       </span>
                     </div>
 
@@ -226,8 +234,8 @@ const CustomizationMockup: React.FC<{ className?: string }> = ({
                                 sIdx === 0
                                   ? "top-1 right-1.5"
                                   : sIdx === 1
-                                  ? "bottom-1 left-1.5"
-                                  : "top-1 left-2"
+                                    ? "bottom-1 left-1.5"
+                                    : "top-1 left-2"
                               } ${isFocused ? "scale-125 z-30" : "scale-100 opacity-90"}`}
                             >
                               <span className="text-xs sm:text-sm drop-shadow-md select-none">
@@ -246,7 +254,9 @@ const CustomizationMockup: React.FC<{ className?: string }> = ({
               </div>
 
               <div className="pt-1.5 pb-0.5 px-1 flex items-center justify-between text-[7.5px] font-medium text-primary-text/70">
-                <span className="font-mono tracking-tighter">PARIS PHOTOBOOTH</span>
+                <span className="font-mono tracking-tighter">
+                  PARIS PHOTOBOOTH
+                </span>
                 <span className="inline-flex items-center gap-0.5 opacity-80">
                   <QrCode className="w-2.5 h-2.5 text-primary-text/80" />
                 </span>
@@ -273,29 +283,37 @@ const CustomizationMockup: React.FC<{ className?: string }> = ({
                 </span>
               </div>
               <div className="flex items-center gap-1.5 pt-0.5">
-                {(["pink", "lavender", "cream", "green", "yellow"] as ColorPreset[]).map(
-                  (cKey) => {
-                    const isSelected = selectedColor === cKey;
-                    return (
-                      <button
-                        key={cKey}
-                        onClick={() => setSelectedColor(cKey)}
-                        title={colorStyles[cKey].name}
-                        className={`w-5 sm:w-6 h-5 sm:h-6 rounded-full transition-all duration-200 cursor-pointer ${
-                          colorStyles[cKey].bg
-                        } ${colorStyles[cKey].border} border flex items-center justify-center ${
-                          isSelected
-                            ? "ring-2 ring-coral ring-offset-1 scale-110 shadow-xs"
-                            : "hover:scale-105 opacity-85 hover:opacity-100"
-                        }`}
-                      >
-                        {isSelected && (
-                          <Check className={`w-2.5 h-2.5 stroke-3 ${colorStyles[cKey].text}`} />
-                        )}
-                      </button>
-                    );
-                  }
-                )}
+                {(
+                  [
+                    "pink",
+                    "lavender",
+                    "cream",
+                    "green",
+                    "yellow",
+                  ] as ColorPreset[]
+                ).map((cKey) => {
+                  const isSelected = selectedColor === cKey;
+                  return (
+                    <button
+                      key={cKey}
+                      onClick={() => setSelectedColor(cKey)}
+                      title={colorStyles[cKey].name}
+                      className={`w-5 sm:w-6 h-5 sm:h-6 rounded-full transition-all duration-200 cursor-pointer ${
+                        colorStyles[cKey].bg
+                      } ${colorStyles[cKey].border} border flex items-center justify-center ${
+                        isSelected
+                          ? "ring-2 ring-coral ring-offset-1 scale-110 shadow-xs"
+                          : "hover:scale-105 opacity-85 hover:opacity-100"
+                      }`}
+                    >
+                      {isSelected && (
+                        <Check
+                          className={`w-2.5 h-2.5 stroke-3 ${colorStyles[cKey].text}`}
+                        />
+                      )}
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
@@ -419,7 +437,7 @@ export const CustomizationSection: React.FC = () => {
     if (!sectionRef.current) return;
 
     const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+      "(prefers-reduced-motion: reduce)",
     ).matches;
 
     const ctx = gsap.context(() => {
@@ -437,31 +455,31 @@ export const CustomizationSection: React.FC = () => {
       tl.fromTo(
         ".custom-mockup-container",
         { opacity: 0, y: 25, scale: 0.97 },
-        { opacity: 1, y: 0, scale: 1, duration: 0.8 }
+        { opacity: 1, y: 0, scale: 1, duration: 0.8 },
       )
         .fromTo(
           ".custom-eyebrow",
           { opacity: 0, y: 15 },
           { opacity: 1, y: 0, duration: 0.6 },
-          "-=0.5"
+          "-=0.5",
         )
         .fromTo(
           ".custom-heading",
           { opacity: 0, y: 20 },
           { opacity: 1, y: 0, duration: 0.6 },
-          "-=0.4"
+          "-=0.4",
         )
         .fromTo(
           ".custom-description",
           { opacity: 0, y: 15 },
           { opacity: 1, y: 0, duration: 0.6 },
-          "-=0.4"
+          "-=0.4",
         )
         .fromTo(
           ".custom-checklist-item",
           { opacity: 0, y: 12 },
           { opacity: 1, y: 0, duration: 0.5, stagger: 0.08 },
-          "-=0.3"
+          "-=0.3",
         );
     }, sectionRef);
 
@@ -506,9 +524,9 @@ export const CustomizationSection: React.FC = () => {
               </h2>
 
               <p className="custom-description text-sm sm:text-base text-secondary-text leading-relaxed max-w-md">
-                Recreate the real Hangout and Snapchat photobooth experience right
-                in your browser. Choose a classic frame, pastel colors, fun
-                stickers, and Y2K-inspired decorations.
+                Recreate the real Hangout and Snapchat photobooth experience
+                right in your browser. Choose a classic frame, pastel colors,
+                fun stickers, and Y2K-inspired decorations.
               </p>
 
               <ul className="pt-1 space-y-2.5 sm:space-y-3 w-full">

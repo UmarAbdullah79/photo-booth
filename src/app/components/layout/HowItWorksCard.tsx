@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from "@/components/ui/Card";
+import { Card } from "@/app/components/ui/Card";
 
 export interface HowItWorksCardProps {
   step: string;
