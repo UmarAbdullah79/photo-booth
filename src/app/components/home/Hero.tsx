@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from "react";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
+import Image from "next/image";
 import {
   ArrowRight,
   Heart,
@@ -23,7 +24,7 @@ const HeroVisual: React.FC = () => {
   return (
     <div className="relative w-full flex items-center justify-center py-4 lg:py-6 select-none">
       {/* Decorative Soft Pastel Glow Background Elements */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 sm:w-110 sm:h-110 rounded-full bg-gradient-to-tr from-pastel-pink/50 via-pastel-purple/40 to-pastel-blue/50 blur-3xl -z-10 opacity-80 pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 sm:w-110 sm:h-110 rounded-full bg-linear-to-tr from-pastel-pink/50 via-pastel-purple/40 to-pastel-blue/50 blur-3xl -z-10 opacity-80 pointer-events-none" />
       <div className="absolute -top-6 right-10 w-24 h-24 rounded-full bg-pastel-yellow/40 blur-2xl -z-10 pointer-events-none" />
 
       {/* Main Composition Box */}
@@ -52,13 +53,13 @@ const HeroVisual: React.FC = () => {
                 </span>
               </div>
               <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-pastel-pink text-coral-dark">
-                ALEX
+                Malar (Chennai)
               </span>
             </div>
 
             {/* Camera Viewfinder Area */}
-            <div className="relative aspect-[3/4] rounded-2xl bg-gradient-to-b from-blush-primary via-blush-soft to-lavender overflow-hidden border border-border-soft flex flex-col items-center justify-center p-3">
-              <div className="absolute inset-0 bg-[radial-gradient(var(--coral-pink)_1px,transparent_1px)] [background-size:12px_12px] opacity-15 pointer-events-none" />
+            <div className="relative aspect-3/4 rounded-2xl bg-linear-to-b from-blush-primary via-blush-soft to-lavender overflow-hidden border border-border-soft flex flex-col items-center justify-center">
+              {/* <div className="absolute inset-0 bg-[radial-gradient(var(--coral-pink)_1px,transparent_1px)] bg-size-[12px_12px] opacity-15 pointer-events-none" /> */}
 
               {/* Viewfinder Corner Marks */}
               <div className="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-coral/40 rounded-tl-sm" />
@@ -67,8 +68,8 @@ const HeroVisual: React.FC = () => {
               <div className="absolute bottom-2 right-2 w-3 h-3 border-b-2 border-r-2 border-coral/40 rounded-br-sm" />
 
               {/* Stylized Remote Feed Illustration */}
-              <div className="relative z-10 flex flex-col items-center text-center">
-                <div className="w-14 h-14 sm:w-18 sm:h-18 rounded-full bg-gradient-to-tr from-pastel-pink to-white p-1 shadow-xs mb-2">
+              {/* <div className="relative z-10 flex flex-col items-center text-center">
+                <div className="w-14 h-14 sm:w-18 sm:h-18 rounded-full bg-linear-to-tr from-pastel-pink to-white p-1 shadow-xs mb-2">
                   <div className="w-full h-full rounded-full bg-blush-primary flex items-center justify-center border border-coral/20">
                     <span className="text-xl sm:text-2xl font-bold text-coral">
                       ✨
@@ -82,7 +83,14 @@ const HeroVisual: React.FC = () => {
                   <CheckCircle2 className="w-2.5 h-2.5 text-success" />
                   <span>Ready</span>
                 </div>
-              </div>
+              </div> */}
+              <Image
+                src="/images/hero-1.png"
+                alt="Hero background"
+                width={800}
+                height={600}
+                className="object-cover aspect-3/4 object-center h-full w-full rounded-sm"
+              />
 
               {/* Floating Heart Sticker */}
               <div className="absolute top-3 right-3 bg-white/90 p-1 rounded-full shadow-xs border border-pastel-pink">
@@ -117,13 +125,13 @@ const HeroVisual: React.FC = () => {
                 </span>
               </div>
               <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-pastel-purple text-pastel-purple-text">
-                SAM
+                Vinoth (Kerala)
               </span>
             </div>
 
             {/* Camera Viewfinder Area */}
-            <div className="relative aspect-[3/4] rounded-2xl bg-gradient-to-b from-lavender via-lavender-blue to-blush-primary overflow-hidden border border-border-soft flex flex-col items-center justify-center p-3">
-              <div className="absolute inset-0 bg-[radial-gradient(var(--accent-purple-text)_1px,transparent_1px)] [background-size:12px_12px] opacity-15 pointer-events-none" />
+            <div className="relative aspect-3/4 rounded-2xl bg-linear-to-b from-lavender via-lavender-blue to-blush-primary overflow-hidden border border-border-soft flex flex-col items-center justify-center">
+              {/* <div className="absolute inset-0 bg-[radial-gradient(var(--accent-purple-text)_1px,transparent_1px)] bg-size-[12px_12px] opacity-15 pointer-events-none" /> */}
 
               {/* Viewfinder Corner Marks */}
               <div className="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-pastel-purple-text/40 rounded-tl-sm" />
@@ -132,8 +140,8 @@ const HeroVisual: React.FC = () => {
               <div className="absolute bottom-2 right-2 w-3 h-3 border-b-2 border-r-2 border-pastel-purple-text/40 rounded-br-sm" />
 
               {/* Stylized Remote Feed Illustration */}
-              <div className="relative z-10 flex flex-col items-center text-center">
-                <div className="w-14 h-14 sm:w-18 sm:h-18 rounded-full bg-gradient-to-tr from-pastel-purple to-white p-1 shadow-xs mb-2">
+              {/* <div className="relative z-10 flex flex-col items-center text-center">
+                <div className="w-14 h-14 sm:w-18 sm:h-18 rounded-full bg-linear-to-tr from-pastel-purple to-white p-1 shadow-xs mb-2">
                   <div className="w-full h-full rounded-full bg-lavender flex items-center justify-center border border-pastel-purple-text/20">
                     <span className="text-xl sm:text-2xl font-bold text-pastel-purple-text">
                       💖
@@ -147,7 +155,15 @@ const HeroVisual: React.FC = () => {
                   <CheckCircle2 className="w-2.5 h-2.5 text-success" />
                   <span>Ready</span>
                 </div>
-              </div>
+              </div> */}
+               <Image
+                src="/images/hero-2.png"
+                alt="Hero background"
+                width={800}
+                height={600}
+                className="object-cover aspect-3/4 object-center h-full w-full rounded-sm"
+              />
+
 
               {/* Floating Sparkle Sticker */}
               <div className="absolute top-3 left-3 bg-white/90 p-1 rounded-full shadow-xs border border-pastel-purple">

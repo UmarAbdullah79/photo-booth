@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import { Badge } from "@/components/ui/Badge";
-import { Container } from "@/components/ui/Container";
-import { Section } from "@/components/ui/Section";
-import { HowItWorksCard } from "@/components/layout/HowItWorksCard";
+import { Badge } from "@/app/components/ui/Badge";
+import { Container } from "@/app/components/ui/Container";
+import { Section } from "@/app/components/ui/Section";
+import { HowItWorksCard } from "@/app/components/layout/HowItWorksCard";
 import {
   Link2,
   Share2,
@@ -30,25 +30,25 @@ export const HowItWorks: React.FC = () => {
       tl.fromTo(
         ".how-eyebrow",
         { opacity: 0, y: 15 },
-        { opacity: 1, y: 0, duration: 0.6 }
+        { opacity: 1, y: 0, duration: 0.6 },
       )
         .fromTo(
           ".how-heading",
           { opacity: 0, y: 20 },
           { opacity: 1, y: 0, duration: 0.6 },
-          "-=0.4"
+          "-=0.4",
         )
         .fromTo(
           ".how-description",
           { opacity: 0, y: 15 },
           { opacity: 1, y: 0, duration: 0.6 },
-          "-=0.4"
+          "-=0.4",
         )
         .fromTo(
           ".how-it-works-card",
           { opacity: 0, y: 25 },
           { opacity: 1, y: 0, duration: 0.7, stagger: 0.14 },
-          "-=0.3"
+          "-=0.3",
         );
     }, sectionRef);
 

@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { Section } from "@/components/ui/Section";
-import { Container } from "@/components/ui/Container";
-import { Badge } from "@/components/ui/Badge";
+import { Section } from "@/app/components/ui/Section";
+import { Container } from "@/app/components/ui/Container";
+import { Badge } from "@/app/components/ui/Badge";
 import { Heart, Sparkles, Camera, CheckCircle2 } from "lucide-react";
 import gsap from "gsap";
 
@@ -75,60 +75,179 @@ const PhotoStrip: React.FC<{
   const getFramesData = (): PhotoFrameData[] => {
     if (category === "couples") {
       return [
-        { gradient: "from-[#FFE0E8] via-[#FFF0F3] to-[#F7F2FB]", sticker: "💖", label: "NYC ➔ London", tag: "Synced 0.02s" },
-        { gradient: "from-[#F45F7D]/20 via-[#FFE0E8] to-[#FFF0F3]", sticker: "✨", label: "Anniversary Flash" },
-        { gradient: "from-[#FFF0F3] to-[#EEDCFA]", sticker: "💌", label: "Late Night Call" },
-        { gradient: "from-[#FFE0E8] to-[#FFF0B8]", sticker: "💕", label: "One Shared Photo" },
+        {
+          gradient: "from-[#FFE0E8] via-[#FFF0F3] to-[#F7F2FB]",
+          sticker: "💖",
+          label: "NYC ➔ London",
+          tag: "Synced 0.02s",
+        },
+        {
+          gradient: "from-[#F45F7D]/20 via-[#FFE0E8] to-[#FFF0F3]",
+          sticker: "✨",
+          label: "Anniversary Flash",
+        },
+        {
+          gradient: "from-[#FFF0F3] to-[#EEDCFA]",
+          sticker: "💌",
+          label: "Late Night Call",
+        },
+        {
+          gradient: "from-[#FFE0E8] to-[#FFF0B8]",
+          sticker: "💕",
+          label: "One Shared Photo",
+        },
       ];
     }
 
     if (category === "besties") {
       return [
-        { gradient: "from-[#EEDCFA] via-[#F2F4FC] to-[#DDF3E8]", sticker: "🎉", label: "BFF Birthday", tag: "Live P2P" },
-        { gradient: "from-[#DDF3E8] to-[#E2F0FA]", sticker: "☕", label: "Coffee Catchup" },
-        { gradient: "from-[#FFF0B8] to-[#FFE0E8]", sticker: "🥳", label: "Squad Laughs" },
-        { gradient: "from-[#E2F0FA] to-[#EEDCFA]", sticker: "⭐", label: "Bestie Memories" },
+        {
+          gradient: "from-[#EEDCFA] via-[#F2F4FC] to-[#DDF3E8]",
+          sticker: "🎉",
+          label: "BFF Birthday",
+          tag: "Live P2P",
+        },
+        {
+          gradient: "from-[#DDF3E8] to-[#E2F0FA]",
+          sticker: "☕",
+          label: "Coffee Catchup",
+        },
+        {
+          gradient: "from-[#FFF0B8] to-[#FFE0E8]",
+          sticker: "🥳",
+          label: "Squad Laughs",
+        },
+        {
+          gradient: "from-[#E2F0FA] to-[#EEDCFA]",
+          sticker: "⭐",
+          label: "Bestie Memories",
+        },
       ];
     }
 
     if (category === "y2k") {
       return [
-        { gradient: "from-[#FFF0B8] via-[#FFE0E8] to-[#EEDCFA]", sticker: "🌸", label: "Y2K Glow Cam", tag: "Retro Filter" },
-        { gradient: "from-[#E2F0FA] via-[#EEDCFA] to-[#FFF0B8]", sticker: "💫", label: "Cyber Hearts" },
-        { gradient: "from-[#FFE0E8] to-[#7E3A94]/20", sticker: "🎀", label: "Flash Sticker" },
-        { gradient: "from-[#FFF0B8] to-[#DDF3E8]", sticker: "✦", label: "Nostalgia 2000s" },
+        {
+          gradient: "from-[#FFF0B8] via-[#FFE0E8] to-[#EEDCFA]",
+          sticker: "🌸",
+          label: "Y2K Glow Cam",
+          tag: "Retro Filter",
+        },
+        {
+          gradient: "from-[#E2F0FA] via-[#EEDCFA] to-[#FFF0B8]",
+          sticker: "💫",
+          label: "Cyber Hearts",
+        },
+        {
+          gradient: "from-[#FFE0E8] to-[#7E3A94]/20",
+          sticker: "🎀",
+          label: "Flash Sticker",
+        },
+        {
+          gradient: "from-[#FFF0B8] to-[#DDF3E8]",
+          sticker: "✦",
+          label: "Nostalgia 2000s",
+        },
       ];
     }
 
     switch (variant) {
       case "classic":
         return [
-          { gradient: "from-[#FFE0E8] via-[#FFF0F3] to-[#F7F2FB]", sticker: "💖", label: "Alex & Sam", tag: "Live Sync" },
-          { gradient: "from-[#FFF0F3] to-[#E2F0FA]", sticker: "✨", label: "Silly Faces" },
-          { gradient: "from-[#E2F0FA] to-[#FFE0E8]", sticker: "💌", label: "One Photo" },
-          { gradient: "from-[#FFE0E8] to-[#DDF3E8]", sticker: "🌸", label: "Sweet Moments" },
+          {
+            gradient: "from-[#FFE0E8] via-[#FFF0F3] to-[#F7F2FB]",
+            sticker: "💖",
+            label: "Alex & Sam",
+            tag: "Live Sync",
+          },
+          {
+            gradient: "from-[#FFF0F3] to-[#E2F0FA]",
+            sticker: "✨",
+            label: "Silly Faces",
+          },
+          {
+            gradient: "from-[#E2F0FA] to-[#FFE0E8]",
+            sticker: "💌",
+            label: "One Photo",
+          },
+          {
+            gradient: "from-[#FFE0E8] to-[#DDF3E8]",
+            sticker: "🌸",
+            label: "Sweet Moments",
+          },
         ];
       case "warm":
         return [
-          { gradient: "from-[#FFF0B8] via-[#FFE0E8] to-[#EEDCFA]", sticker: "✨", label: "Y2K Retro", tag: "Warm Glow" },
-          { gradient: "from-[#EEDCFA] to-[#FFF0B8]", sticker: "🎉", label: "Bestie Reunion" },
-          { gradient: "from-[#FFF0B8] to-[#DDF3E8]", sticker: "⭐", label: "Laugh Together" },
-          { gradient: "from-[#DDF3E8] to-[#FFE0E8]", sticker: "💫", label: "P2P Connected" },
+          {
+            gradient: "from-[#FFF0B8] via-[#FFE0E8] to-[#EEDCFA]",
+            sticker: "✨",
+            label: "Y2K Retro",
+            tag: "Warm Glow",
+          },
+          {
+            gradient: "from-[#EEDCFA] to-[#FFF0B8]",
+            sticker: "🎉",
+            label: "Bestie Reunion",
+          },
+          {
+            gradient: "from-[#FFF0B8] to-[#DDF3E8]",
+            sticker: "⭐",
+            label: "Laugh Together",
+          },
+          {
+            gradient: "from-[#DDF3E8] to-[#FFE0E8]",
+            sticker: "💫",
+            label: "P2P Connected",
+          },
         ];
       case "dark":
         return [
-          { gradient: "from-[#292326] via-[#7E3A94] to-[#F45F7D]", sticker: "🌙", label: "Midnight Call", tag: "300DPI HQ" },
-          { gradient: "from-[#7E3A94] via-[#292326] to-[#C93E5C]", sticker: "🔥", label: "Flash Photo" },
-          { gradient: "from-[#292326] to-[#58A77F]/40", sticker: "⚡", label: "Real Time" },
-          { gradient: "from-[#C93E5C] to-[#292326]", sticker: "💖", label: "Forever Strip" },
+          {
+            gradient: "from-[#292326] via-[#7E3A94] to-[#F45F7D]",
+            sticker: "🌙",
+            label: "Midnight Call",
+            tag: "300DPI HQ",
+          },
+          {
+            gradient: "from-[#7E3A94] via-[#292326] to-[#C93E5C]",
+            sticker: "🔥",
+            label: "Flash Photo",
+          },
+          {
+            gradient: "from-[#292326] to-[#58A77F]/40",
+            sticker: "⚡",
+            label: "Real Time",
+          },
+          {
+            gradient: "from-[#C93E5C] to-[#292326]",
+            sticker: "💖",
+            label: "Forever Strip",
+          },
         ];
       case "blush":
       default:
         return [
-          { gradient: "from-[#FFE0E8] via-[#E2F0FA] to-[#FFF0F3]", sticker: "💕", label: "Long Distance", tag: "Synced 0.02s" },
-          { gradient: "from-[#FFF0F3] to-[#EEDCFA]", sticker: "☕", label: "Coffee Moment" },
-          { gradient: "from-[#EEDCFA] to-[#FFF0B8]", sticker: "🥳", label: "Birthday Smile" },
-          { gradient: "from-[#FFF0B8] to-[#FFE0E8]", sticker: "🎀", label: "Shared Memory" },
+          {
+            gradient: "from-[#FFE0E8] via-[#E2F0FA] to-[#FFF0F3]",
+            sticker: "💕",
+            label: "Long Distance",
+            tag: "Synced 0.02s",
+          },
+          {
+            gradient: "from-[#FFF0F3] to-[#EEDCFA]",
+            sticker: "☕",
+            label: "Coffee Moment",
+          },
+          {
+            gradient: "from-[#EEDCFA] to-[#FFF0B8]",
+            sticker: "🥳",
+            label: "Birthday Smile",
+          },
+          {
+            gradient: "from-[#FFF0B8] to-[#FFE0E8]",
+            sticker: "🎀",
+            label: "Shared Memory",
+          },
         ];
     }
   };
@@ -143,19 +262,22 @@ const PhotoStrip: React.FC<{
       brandBadge: "bg-blush-primary text-coral",
     },
     warm: {
-      outer: "bg-[#FFF8E6] text-primary-text border border-pastel-yellow-text/20 shadow-photo",
+      outer:
+        "bg-[#FFF8E6] text-primary-text border border-pastel-yellow-text/20 shadow-photo",
       innerBg: "bg-[#FFFCEF] border border-pastel-yellow-text/15",
       captionText: "text-pastel-yellow-text font-bold",
       brandBadge: "bg-pastel-yellow text-pastel-yellow-text",
     },
     dark: {
-      outer: "bg-[#1F1A1C] text-white border border-white/10 shadow-[0_12px_40px_rgba(0,0,0,0.25)]",
+      outer:
+        "bg-[#1F1A1C] text-white border border-white/10 shadow-[0_12px_40px_rgba(0,0,0,0.25)]",
       innerBg: "bg-[#292326] border border-white/10",
       captionText: "text-white font-bold",
       brandBadge: "bg-white/10 text-coral",
     },
     blush: {
-      outer: "bg-[#FFF0F4] text-primary-text border border-coral/20 shadow-photo",
+      outer:
+        "bg-[#FFF0F4] text-primary-text border border-coral/20 shadow-photo",
       innerBg: "bg-[#FFF7F9] border border-coral/15",
       captionText: "text-coral font-bold",
       brandBadge: "bg-pastel-pink text-coral-dark",
@@ -173,7 +295,9 @@ const PhotoStrip: React.FC<{
             STRIP 0{stripNumber}
           </span>
         </div>
-        <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded-full uppercase tracking-wider ${stripTheme.brandBadge}`}>
+        <span
+          className={`text-[9px] font-bold px-1.5 py-0.5 rounded-full uppercase tracking-wider ${stripTheme.brandBadge}`}
+        >
           TWO HEARTS
         </span>
       </div>
@@ -184,7 +308,9 @@ const PhotoStrip: React.FC<{
             key={idx}
             className="group/frame relative aspect-[4/3] rounded-lg overflow-hidden border border-black/5 shadow-xs flex flex-col justify-between p-2.5 transition-transform duration-200 hover:scale-[1.02]"
           >
-            <div className={`absolute inset-0 bg-gradient-to-tr ${frame.gradient}`} />
+            <div
+              className={`absolute inset-0 bg-gradient-to-tr ${frame.gradient}`}
+            />
             <div className="absolute top-1.5 left-1.5 w-2 h-2 border-t border-l border-white/60" />
             <div className="absolute top-1.5 right-1.5 w-2 h-2 border-t border-r border-white/60" />
             <div className="absolute bottom-1.5 left-1.5 w-2 h-2 border-b border-l border-white/60" />
@@ -221,7 +347,9 @@ const PhotoStrip: React.FC<{
       </div>
 
       <div className="pt-3 px-1 text-center space-y-0.5">
-        <h4 className={`text-xs uppercase tracking-wider ${stripTheme.captionText}`}>
+        <h4
+          className={`text-xs uppercase tracking-wider ${stripTheme.captionText}`}
+        >
           {title}
         </h4>
         <p className="text-[9px] opacity-75 font-mono tracking-tight">
@@ -245,31 +373,31 @@ export const InspirationGallery: React.FC = () => {
       tl.fromTo(
         ".gallery-eyebrow",
         { opacity: 0, y: 15 },
-        { opacity: 1, y: 0, duration: 0.6 }
+        { opacity: 1, y: 0, duration: 0.6 },
       )
         .fromTo(
           ".gallery-heading",
           { opacity: 0, y: 20 },
           { opacity: 1, y: 0, duration: 0.6 },
-          "-=0.4"
+          "-=0.4",
         )
         .fromTo(
           ".gallery-description",
           { opacity: 0, y: 15 },
           { opacity: 1, y: 0, duration: 0.6 },
-          "-=0.4"
+          "-=0.4",
         )
         .fromTo(
           ".gallery-filters",
           { opacity: 0, y: 15 },
           { opacity: 1, y: 0, duration: 0.6 },
-          "-=0.4"
+          "-=0.4",
         )
         .fromTo(
           ".photo-strip",
           { opacity: 0, y: 30, scale: 0.97 },
           { opacity: 1, y: 0, scale: 1, duration: 0.8, stagger: 0.1 },
-          "-=0.3"
+          "-=0.3",
         );
     }, sectionRef);
 
@@ -301,8 +429,8 @@ export const InspirationGallery: React.FC = () => {
               </h2>
 
               <p className="gallery-description text-sm sm:text-base text-secondary-text leading-relaxed max-w-lg">
-                Authentic, real-life moments captured together — from silly faces
-                and birthday laughs to long-distance besties and lovers.
+                Authentic, real-life moments captured together — from silly
+                faces and birthday laughs to long-distance besties and lovers.
               </p>
             </div>
 
