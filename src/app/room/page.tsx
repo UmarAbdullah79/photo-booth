@@ -1,0 +1,12 @@
+import type { Metadata } from "next";
+import RoomReadyClient from "./(components)/RoomReadyClient";
+
+export const metadata: Metadata = {
+  title: "Your Room is Ready 💕 | Miles Apart Photo Booth",
+  description:
+    "Share your private photo booth code with your favorite person to take synchronized photos together.",
+};
+
+export default function RoomIndexPage() {
+  return <RoomReadyClient />;
+}
