@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
@@ -43,9 +44,7 @@ export default function RoomReadyClient({
 
   // Session demonstration state
   const [roomCode, setRoomCode] = useState<string>(initialCode || "A7K92P");
-  const [hostNickname, setHostNickname] = useState<string>(
-    initialNickname || "You"
-  );
+  const [hostNickname, setHostNickname] = useState<string>(initialNickname || "You");
   const [invitationUrl, setInvitationUrl] = useState<string>("");
   const [isQRModalOpen, setIsQRModalOpen] = useState<boolean>(false);
   const [showHelpModal, setShowHelpModal] = useState<boolean>(false);
@@ -80,6 +79,7 @@ export default function RoomReadyClient({
       const activeCode = storedCode || initialCode || "A7K92P";
       const origin = window.location.origin;
       setInvitationUrl(`${origin}/join?code=${activeCode}`);
+      setInvitationUrl(`${origin}/join-room?code=${activeCode}`);
     }
   }, [initialCode, initialNickname]);
 
@@ -87,7 +87,8 @@ export default function RoomReadyClient({
   useEffect(() => {
     if (typeof window !== "undefined") {
       const origin = window.location.origin;
-      setInvitationUrl(`${origin}/join?code=${roomCode}`);
+      // setInvitationUrl(`${origin}/join?code=${roomCode}`);
+      setInvitationUrl(`${origin}/join-room?code=${roomCode}`);
     }
   }, [roomCode]);
 
@@ -112,42 +113,51 @@ export default function RoomReadyClient({
     if (!pageRef.current) return;
 
     const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+      "(prefers-reduced-motion: reduce)",
     ).matches;
     if (prefersReducedMotion) return;
 
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-      tl.fromTo(
-        ".anim-header",
-        { opacity: 0, y: -16 },
-        { opacity: 1, y: 0, duration: 0.6 }
-      )
+      tl.fromTo(".anim-back", { opacity: 0, x: -10 }, { opacity: 1, x: 0, duration: 0.4 })
+        .fromTo(
+          ".anim-badge",
+          { opacity: 0, y: -10, scale: 0.95 },
+          { opacity: 1, y: 0, scale: 1, duration: 0.5 },
+          "-=0.2",
+        )
+        .fromTo(
+          ".anim-heading",
+          { opacity: 0, y: 15 },
+          { opacity: 1, y: 0, duration: 0.6 },
+          "-=0.3",
+        )
+        .fromTo(
+          ".anim-subtitle",
+          { opacity: 0, y: 12 },
+          { opacity: 1, y: 0, duration: 0.5 },
+          "-=0.4",
+        )
         .fromTo(
           ".anim-code-card",
-          { opacity: 0, scale: 0.96, y: 12 },
-          { opacity: 1, scale: 1, y: 0, duration: 0.65 },
-          "-=0.3"
+          { opacity: 0, y: 20, scale: 0.98 },
+          { opacity: 1, y: 0, scale: 1, duration: 0.7 },
+          "-=0.3",
         )
         .fromTo(
           ".anim-sharing",
-          { opacity: 0, y: 12 },
-          { opacity: 1, y: 0, duration: 0.5, stagger: 0.08 },
-          "-=0.35"
+          { opacity: 0, y: 15 },
+          { opacity: 1, y: 0, duration: 0.5 },
+          "-=0.4",
         )
         .fromTo(
-          ".anim-panels",
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.7, stagger: 0.15 },
-          "-=0.3"
+          ".anim-columns",
+          { opacity: 0, y: 25 },
+          { opacity: 1, y: 0, duration: 0.7 },
+          "-=0.3",
         )
-        .fromTo(
-          ".anim-footer",
-          { opacity: 0 },
-          { opacity: 1, duration: 0.5 },
-          "-=0.2"
-        );
+        .fromTo(".anim-privacy", { opacity: 0 }, { opacity: 1, duration: 0.5 }, "-=0.2");
     }, pageRef);
 
     return () => ctx.revert();
@@ -481,31 +491,17 @@ export default function RoomReadyClient({
                     <span>Room Host: {hostNickname}</span>
                   </div>
 
-                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/80 border border-coral/20 text-[11px] font-semibold text-secondary-text shadow-2xs">
-                    <span className="relative flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-coral opacity-75" />
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-coral" />
-                    </span>
-                    <span>Waiting for partner...</span>
-                  </div>
-                </div>
+            {/* Heading */}
+            <h1 className="anim-heading text-3xl sm:text-4xl lg:text-[42px] font-bold tracking-tight text-primary-text leading-[1.15] mb-2 sm:mb-3">
+              Your Room is Ready <span className="text-coral inline-block">💕</span>
+            </h1>
 
-                {/* Status Text */}
-                <div>
-                  <div className="flex items-center gap-1.5 mb-1.5">
-                    <Heart className="w-4 h-4 fill-coral text-coral" />
-                    <p className="text-xs font-bold uppercase tracking-wider text-coral">
-                      Waiting for your friend to join...
-                    </p>
-                  </div>
-                  <h2 className="text-xl sm:text-2xl font-bold text-primary-text tracking-tight leading-snug">
-                    The booth wakes up together! ✨
-                  </h2>
-                  <p className="text-xs sm:text-sm text-secondary-text mt-2 leading-relaxed">
-                    Keep this browser tab open. Share your room code with your favorite
-                    person and get ready to capture memories together.
-                  </p>
-                </div>
+            {/* Subtitle */}
+            <p className="anim-subtitle text-xs sm:text-sm md:text-base text-secondary-text max-w-lg mx-auto leading-relaxed">
+              Share this code with your photo partner to join the booth{" "}
+              <span className="inline-block">✨</span>
+            </p>
+          </div>
 
                 {/* Side-by-side frame previews */}
                 <div className="py-2">
@@ -602,14 +598,11 @@ export default function RoomReadyClient({
             </div>
           </div>
 
-          {/* Right Column: Host Camera Preview Card */}
-          <div className="lg:col-span-5 flex flex-col">
-            <HostCameraPreview
-              roomCode={roomCode}
-              hostNickname={hostNickname}
-            />
+            {/* RIGHT COLUMN: HOST CAMERA PREVIEW */}
+            <div className="flex flex-col h-full">
+              <HostCameraPreview roomCode={roomCode} hostNickname={hostNickname} />
+            </div>
           </div>
-        </div>
 
         {/* Demo Fast-Forward to Booth Shortcut */}
         <div className="anim-footer text-center pt-2">

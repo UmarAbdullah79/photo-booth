@@ -23,7 +23,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
           aria-label="Two Hearts Photo Booth Homepage"
         >
           <Image
-            src="/images/logo.png"
+            src="/images/logo-2.svg"
             alt="Two Hearts Photo Booth"
             width={140}
             height={46}
@@ -37,27 +37,27 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
           className="hidden md:flex items-center gap-8 text-xs font-medium tracking-wide text-secondary-text"
           aria-label="Main Navigation"
         >
-          <a
+          <Link
             href="/#how-it-works"
             className={`transition-colors duration-200 hover:text-coral ${
               activeSection === "how-it-works" ? "text-coral" : ""
             }`}
           >
             How it works
-          </a>
-          <a
+          </Link>
+          <Link
             href="/#gallery"
             className={`transition-colors duration-200 hover:text-coral ${
               activeSection === "gallery" ? "text-coral" : ""
             }`}
           >
             Gallery
-          </a>
+          </Link>
         </nav>
 
         {/* RIGHT: CTAs (Desktop) */}
         <div className="hidden md:flex items-center gap-3">
-          <Button variant="secondary" size="sm" href="/join">
+          <Button variant="secondary" size="sm" href="/join-room">
             Join a Room
           </Button>
           <Button
@@ -85,11 +85,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
           className="md:hidden w-10 h-10 rounded-full bg-white border border-border-primary flex items-center justify-center text-primary-text hover:bg-blush-primary transition-colors focus:outline-none"
           aria-label="Toggle Navigation Menu"
         >
-          {mobileMenuOpen ? (
-            <X className="w-5 h-5" />
-          ) : (
-            <Menu className="w-5 h-5" />
-          )}
+          {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>
 
@@ -97,20 +93,20 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
       {mobileMenuOpen && (
         <div className="md:hidden border-t border-border-soft bg-cream px-5 py-6 space-y-4 shadow-lg animate-in slide-in-from-top-2 duration-200">
           <nav className="flex flex-col space-y-3 font-semibold text-sm text-secondary-text">
-            <a
+            <Link
               href="/#how-it-works"
               onClick={() => setMobileMenuOpen(false)}
               className="py-1 hover:text-coral transition-colors"
             >
               How it works
-            </a>
-            <a
+            </Link>
+            <Link
               href="/#gallery"
               onClick={() => setMobileMenuOpen(false)}
               className="py-1 hover:text-coral transition-colors"
             >
               Gallery
-            </a>
+            </Link>
           </nav>
           <div className="pt-2 flex flex-col gap-2.5">
             <Button
@@ -126,7 +122,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
             <Button
               variant="secondary"
               size="md"
-              href="/join"
+              href="/join-room"
               fullWidth
               onClick={() => setMobileMenuOpen(false)}
             >

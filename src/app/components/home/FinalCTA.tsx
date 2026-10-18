@@ -13,9 +13,7 @@ if (typeof window !== "undefined") {
 }
 
 /* Internal Camera Illustration Component */
-const CameraIllustration: React.FC<{ className?: string }> = ({
-  className = "",
-}) => {
+const CameraIllustration: React.FC<{ className?: string }> = ({ className = "" }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -57,7 +55,7 @@ const CameraIllustration: React.FC<{ className?: string }> = ({
       </span>
 
       <div className="w-16 sm:w-20 h-16 sm:h-20 rounded-2xl bg-white p-2 border-2 border-coral/30 shadow-[0_8px_25px_rgba(244,95,125,0.15)] flex items-center justify-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-tr from-[#FFE0E8] via-[#FFF0F3] to-[#EEDCFA]" />
+        <div className="absolute inset-0 bg-linear-to-tr from-pastel-pink via-blush-primary to-pastel-purple" />
 
         <svg
           width="48"
@@ -190,7 +188,7 @@ export const FinalCTA: React.FC = () => {
               together?
             </h2>
 
-            <p className="cta-description text-sm sm:text-base text-secondary-text leading-relaxed max-w-[500px] mx-auto">
+            <p className="cta-description text-sm sm:text-base text-secondary-text leading-relaxed max-w-125 mx-auto">
               Join thousands of couples, besties, and family members capturing
               unforgettable moments together — no matter how far apart.
             </p>
@@ -210,7 +208,7 @@ export const FinalCTA: React.FC = () => {
               <Button
                 variant="secondary"
                 size="md"
-                href="/join"
+                href="/join-room"
                 className="w-full xs:w-auto px-5"
               >
                 Enter 6-Digit Code
