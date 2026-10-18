@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
@@ -28,9 +29,7 @@ export default function RoomReadyClient({
 
   // Sample frontend demonstration data
   const [roomCode, setRoomCode] = useState<string>(initialCode || "A7K92P");
-  const [hostNickname, setHostNickname] = useState<string>(
-    initialNickname || "You"
-  );
+  const [hostNickname, setHostNickname] = useState<string>(initialNickname || "You");
   const [invitationUrl, setInvitationUrl] = useState<string>("");
   const [isQRModalOpen, setIsQRModalOpen] = useState<boolean>(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
@@ -51,6 +50,7 @@ export default function RoomReadyClient({
       const activeCode = storedCode || initialCode || "A7K92P";
       const origin = window.location.origin;
       setInvitationUrl(`${origin}/join?code=${activeCode}`);
+      setInvitationUrl(`${origin}/join-room?code=${activeCode}`);
     }
   }, [initialCode, initialNickname]);
 
@@ -58,7 +58,8 @@ export default function RoomReadyClient({
   useEffect(() => {
     if (typeof window !== "undefined") {
       const origin = window.location.origin;
-      setInvitationUrl(`${origin}/join?code=${roomCode}`);
+      // setInvitationUrl(`${origin}/join?code=${roomCode}`);
+      setInvitationUrl(`${origin}/join-room?code=${roomCode}`);
     }
   }, [roomCode]);
 
@@ -75,7 +76,7 @@ export default function RoomReadyClient({
     if (!pageRef.current) return;
 
     const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+      "(prefers-reduced-motion: reduce)",
     ).matches;
 
     if (prefersReducedMotion) return;
@@ -83,53 +84,44 @@ export default function RoomReadyClient({
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-      tl.fromTo(
-        ".anim-back",
-        { opacity: 0, x: -10 },
-        { opacity: 1, x: 0, duration: 0.4 }
-      )
+      tl.fromTo(".anim-back", { opacity: 0, x: -10 }, { opacity: 1, x: 0, duration: 0.4 })
         .fromTo(
           ".anim-badge",
           { opacity: 0, y: -10, scale: 0.95 },
           { opacity: 1, y: 0, scale: 1, duration: 0.5 },
-          "-=0.2"
+          "-=0.2",
         )
         .fromTo(
           ".anim-heading",
           { opacity: 0, y: 15 },
           { opacity: 1, y: 0, duration: 0.6 },
-          "-=0.3"
+          "-=0.3",
         )
         .fromTo(
           ".anim-subtitle",
           { opacity: 0, y: 12 },
           { opacity: 1, y: 0, duration: 0.5 },
-          "-=0.4"
+          "-=0.4",
         )
         .fromTo(
           ".anim-code-card",
           { opacity: 0, y: 20, scale: 0.98 },
           { opacity: 1, y: 0, scale: 1, duration: 0.7 },
-          "-=0.3"
+          "-=0.3",
         )
         .fromTo(
           ".anim-sharing",
           { opacity: 0, y: 15 },
           { opacity: 1, y: 0, duration: 0.5 },
-          "-=0.4"
+          "-=0.4",
         )
         .fromTo(
           ".anim-columns",
           { opacity: 0, y: 25 },
           { opacity: 1, y: 0, duration: 0.7 },
-          "-=0.3"
+          "-=0.3",
         )
-        .fromTo(
-          ".anim-privacy",
-          { opacity: 0 },
-          { opacity: 1, duration: 0.5 },
-          "-=0.2"
-        );
+        .fromTo(".anim-privacy", { opacity: 0 }, { opacity: 1, duration: 0.5 }, "-=0.2");
     }, pageRef);
 
     return () => ctx.revert();
@@ -199,8 +191,7 @@ export default function RoomReadyClient({
 
             {/* Heading */}
             <h1 className="anim-heading text-3xl sm:text-4xl lg:text-[42px] font-bold tracking-tight text-primary-text leading-[1.15] mb-2 sm:mb-3">
-              Your Room is Ready{" "}
-              <span className="text-coral inline-block">💕</span>
+              Your Room is Ready <span className="text-coral inline-block">💕</span>
             </h1>
 
             {/* Subtitle */}
@@ -237,10 +228,7 @@ export default function RoomReadyClient({
 
             {/* RIGHT COLUMN: HOST CAMERA PREVIEW */}
             <div className="flex flex-col h-full">
-              <HostCameraPreview
-                roomCode={roomCode}
-                hostNickname={hostNickname}
-              />
+              <HostCameraPreview roomCode={roomCode} hostNickname={hostNickname} />
             </div>
           </div>
 

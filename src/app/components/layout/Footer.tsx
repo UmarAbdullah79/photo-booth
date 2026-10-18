@@ -19,7 +19,7 @@ export const Footer: React.FC = () => {
               aria-label="Two Hearts Photo Booth Homepage"
             >
               <Image
-                src="/images/logo.png"
+                src="/images/logo-2.svg"
                 alt="Two Hearts Photo Booth"
                 width={130}
                 height={42}
@@ -43,10 +43,7 @@ export const Footer: React.FC = () => {
             >
               How It Works
             </Link>
-            <Link
-              href="/#gallery"
-              className="hover:text-coral transition-colors py-1"
-            >
+            <Link href="/#gallery" className="hover:text-coral transition-colors py-1">
               Gallery
             </Link>
             <Link
@@ -55,17 +52,16 @@ export const Footer: React.FC = () => {
             >
               Create Room
             </Link>
-            <Link
-              href="/join"
-              className="hover:text-coral transition-colors py-1"
-            >
+            <Link href="/join-room" className="hover:text-coral transition-colors py-1">
               Join Room
             </Link>
             <a
               href="#about"
               onClick={(e) => {
                 e.preventDefault();
-                alert("Two Hearts Photo Booth connects hearts across any distance with synchronized, romantic photo strip captures ♡");
+                alert(
+                  "Two Hearts Photo Booth connects hearts across any distance with synchronized, romantic photo strip captures ♡",
+                );
               }}
               className="hover:text-coral transition-colors py-1"
             >
@@ -75,7 +71,9 @@ export const Footer: React.FC = () => {
               href="#privacy"
               onClick={(e) => {
                 e.preventDefault();
-                alert("Privacy Promise: All video feeds and snapshots are peer-to-peer and private to your room. We never store recordings or share your private memories.");
+                alert(
+                  "Privacy Promise: All video feeds and snapshots are peer-to-peer and private to your room. We never store recordings or share your private memories.",
+                );
               }}
               className="hover:text-coral transition-colors py-1"
             >
@@ -92,7 +90,10 @@ export const Footer: React.FC = () => {
 
         {/* Divider & Copyright */}
         <div className="mt-8 pt-6 border-t border-border-soft/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] sm:text-xs text-muted-text text-center sm:text-left">
-          <p>© {new Date().getFullYear()} Made with love for long-distance hearts. Those 3 Guys.</p>
+          <p>
+            © {new Date().getFullYear()} Made with love for long-distance hearts. Those 3
+            Guys.
+          </p>
           <div className="flex items-center gap-1.5 text-muted-text">
             <span>Encrypted &amp; Private Peer-to-Peer</span>
             <span>·</span>

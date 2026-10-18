@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import React, { useEffect, useRef } from "react";
@@ -85,8 +86,8 @@ const HeroVisual: React.FC = () => {
                 </div>
               </div> */}
               <Image
-                src="/images/hero-1.png"
-                alt="Hero background"
+                src="/images/online-photo-booth.webp"
+                alt="free online photo booth"
                 width={800}
                 height={600}
                 className="object-cover aspect-3/4 object-center h-full w-full rounded-sm"
@@ -156,14 +157,13 @@ const HeroVisual: React.FC = () => {
                   <span>Ready</span>
                 </div>
               </div> */}
-               <Image
-                src="/images/hero-2.png"
-                alt="Hero background"
+              <Image
+                src="/images/virtual-photo-booth.webp"
+                alt="photo booth online with friends"
                 width={800}
                 height={600}
                 className="object-cover aspect-3/4 object-center h-full w-full rounded-sm"
               />
-
 
               {/* Floating Sparkle Sticker */}
               <div className="absolute top-3 left-3 bg-white/90 p-1 rounded-full shadow-xs border border-pastel-purple">
@@ -197,9 +197,7 @@ const HeroVisual: React.FC = () => {
             <div>
               <div className="text-xs font-bold text-primary-text flex items-center gap-1">
                 <span>One Shared Photo</span>
-                <span className="text-xs text-coral font-normal">
-                  (Synchronized)
-                </span>
+                <span className="text-xs text-coral font-normal">(Synchronized)</span>
               </div>
               <p className="text-xs text-secondary-text">
                 2 Remote Cameras ➔ 1 Photo Strip
@@ -342,27 +340,25 @@ export const Hero: React.FC = () => {
             <h1 className="text-5xl sm:text-6xl font-bold text-primary-text tracking-tight leading-none flex flex-col">
               <span className="hero-headline-line block">Two People.</span>
               <span className="hero-headline-line block">Two Cameras.</span>
-              <span className="hero-headline-line block text-coral">
-                One Photo.
-              </span>
+              <span className="hero-headline-line block text-coral">One Photo.</span>
             </h1>
 
             <p className="hero-description text-secondary-text text-sm sm:text-base leading-relaxed max-w-md">
-              Take photos together from anywhere, even when you&apos;re miles
-              apart. Sync your cameras, capture fun moments, and create memories
-              that feel like you were together.
+              Take photos together from anywhere, even when you&apos;re miles apart. Sync
+              your cameras, capture fun moments, and create memories that feel like you
+              were together.
             </p>
 
             <div className="hero-cta-group flex flex-wrap items-center gap-3 sm:gap-3.5 pt-1">
               <Button
                 variant="primary"
                 size="lg"
-                href="#create"
+                href="/create"
                 icon={<ArrowRight className="w-4 h-4" />}
               >
                 Create a Room
               </Button>
-              <Button variant="secondary" size="lg" href="#join">
+              <Button variant="secondary" size="lg" href="/join-room">
                 Join a Room
               </Button>
             </div>
