@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { Section } from "@/components/ui/Section";
-import { Container } from "@/components/ui/Container";
-import { Badge } from "@/components/ui/Badge";
+import { Section } from "@/app/components/ui/Section";
+import { Container } from "@/app/components/ui/Container";
+import { Badge } from "@/app/components/ui/Badge";
 import {
   Check,
   CheckCircle2,
@@ -84,9 +84,15 @@ const ExportMockup: React.FC<{ className?: string }> = ({ className = "" }) => {
               </div>
 
               {[
-                { bg: "from-pastel-pink/70 to-pastel-purple/60", icon: Sparkles },
+                {
+                  bg: "from-pastel-pink/70 to-pastel-purple/60",
+                  icon: Sparkles,
+                },
                 { bg: "from-pastel-yellow/70 to-pastel-pink/60", icon: Heart },
-                { bg: "from-pastel-blue/70 to-pastel-green/60", icon: ImageIcon },
+                {
+                  bg: "from-pastel-blue/70 to-pastel-green/60",
+                  icon: ImageIcon,
+                },
               ].map((item, pIdx) => {
                 const IconComp = item.icon;
                 return (
@@ -94,7 +100,9 @@ const ExportMockup: React.FC<{ className?: string }> = ({ className = "" }) => {
                     key={pIdx}
                     className="relative aspect-[4/3] rounded-md overflow-hidden bg-white border border-black/5 shadow-2xs flex items-center justify-center"
                   >
-                    <div className={`absolute inset-0 bg-gradient-to-tr ${item.bg}`} />
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-tr ${item.bg}`}
+                    />
                     <div className="relative z-10 w-5 h-5 rounded-full bg-white/70 backdrop-blur-xs flex items-center justify-center text-coral shadow-2xs">
                       <IconComp className="w-2.5 h-2.5" />
                     </div>
@@ -178,7 +186,9 @@ const ExportMockup: React.FC<{ className?: string }> = ({ className = "" }) => {
             <span className="text-[10px] font-medium hidden sm:inline">
               Instant print &amp; digital backup
             </span>
-            <span className="text-[10px] font-medium sm:hidden">Print ready</span>
+            <span className="text-[10px] font-medium sm:hidden">
+              Print ready
+            </span>
           </div>
 
           <div className="flex items-center gap-1.5">
@@ -218,7 +228,7 @@ export const HighQualitySection: React.FC = () => {
     if (!sectionRef.current) return;
 
     const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+      "(prefers-reduced-motion: reduce)",
     ).matches;
 
     const ctx = gsap.context(() => {
@@ -236,37 +246,37 @@ export const HighQualitySection: React.FC = () => {
       tl.fromTo(
         ".hq-eyebrow",
         { opacity: 0, y: 15 },
-        { opacity: 1, y: 0, duration: 0.6 }
+        { opacity: 1, y: 0, duration: 0.6 },
       )
         .fromTo(
           ".hq-heading",
           { opacity: 0, y: 20 },
           { opacity: 1, y: 0, duration: 0.6 },
-          "-=0.4"
+          "-=0.4",
         )
         .fromTo(
           ".hq-description",
           { opacity: 0, y: 15 },
           { opacity: 1, y: 0, duration: 0.6 },
-          "-=0.4"
+          "-=0.4",
         )
         .fromTo(
           ".hq-checklist-item",
           { opacity: 0, y: 12 },
           { opacity: 1, y: 0, duration: 0.5, stagger: 0.08 },
-          "-=0.3"
+          "-=0.3",
         )
         .fromTo(
           ".hq-mockup-container",
           { opacity: 0, y: 20, scale: 0.98 },
           { opacity: 1, y: 0, scale: 1, duration: 0.8 },
-          "-=0.6"
+          "-=0.6",
         )
         .fromTo(
           ".export-photo-preview",
           { opacity: 0, scale: 0.95 },
           { opacity: 1, scale: 1, duration: 0.5 },
-          "-=0.3"
+          "-=0.3",
         );
     }, sectionRef);
 
@@ -307,9 +317,9 @@ export const HighQualitySection: React.FC = () => {
               </h2>
 
               <p className="hq-description text-sm sm:text-base text-secondary-text leading-relaxed max-w-lg">
-                Every session generates both a 300 DPI ready-to-print image and a
-                video clip for sharing. Print it at your local photo center, post
-                it on your socials, or keep it forever.
+                Every session generates both a 300 DPI ready-to-print image and
+                a video clip for sharing. Print it at your local photo center,
+                post it on your socials, or keep it forever.
               </p>
 
               <ul className="pt-1 space-y-2.5 sm:space-y-3 w-full">

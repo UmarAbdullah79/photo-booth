@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import "./globals.css";
 
+import { Navbar } from "@/app/components/layout/Navbar";
+import { Footer } from "@/app/components/layout/Footer";
+
 const dmSans = DM_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -37,7 +40,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${dmSans.variable} scroll-smooth`}>
       <body className="min-h-screen flex flex-col font-sans bg-[#FFF9F7] text-[#292326] antialiased selection:bg-[#FFE0E8] selection:text-[#C93E5C]">
-        {children}
+        <Navbar />
+        <div className="flex-1 flex flex-col">{children}</div>
+        <Footer />
       </body>
     </html>
   );

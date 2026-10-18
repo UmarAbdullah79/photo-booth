@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import { Section } from "@/components/ui/Section";
-import { Container } from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
+import { Section } from "@/app/components/ui/Section";
+import { Container } from "@/app/components/ui/Container";
+import { Button } from "@/app/components/ui/Button";
 import { ArrowRight, Check, Lock, HeartHandshake } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -22,7 +22,7 @@ const CameraIllustration: React.FC<{ className?: string }> = ({
     if (!containerRef.current) return;
 
     const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+      "(prefers-reduced-motion: reduce)",
     ).matches;
 
     if (prefersReducedMotion) return;
@@ -119,7 +119,7 @@ export const FinalCTA: React.FC = () => {
     if (!sectionRef.current) return;
 
     const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+      "(prefers-reduced-motion: reduce)",
     ).matches;
 
     const ctx = gsap.context(() => {
@@ -137,31 +137,31 @@ export const FinalCTA: React.FC = () => {
       tl.fromTo(
         ".cta-illustration-wrap",
         { opacity: 0, y: 15 },
-        { opacity: 1, y: 0, duration: 0.6 }
+        { opacity: 1, y: 0, duration: 0.6 },
       )
         .fromTo(
           ".cta-heading",
           { opacity: 0, y: 20 },
           { opacity: 1, y: 0, duration: 0.6 },
-          "-=0.4"
+          "-=0.4",
         )
         .fromTo(
           ".cta-description",
           { opacity: 0, y: 15 },
           { opacity: 1, y: 0, duration: 0.6 },
-          "-=0.4"
+          "-=0.4",
         )
         .fromTo(
           ".cta-buttons",
           { opacity: 0, y: 15 },
           { opacity: 1, y: 0, duration: 0.6 },
-          "-=0.3"
+          "-=0.3",
         )
         .fromTo(
           ".cta-reassurance",
           { opacity: 0, y: 10 },
           { opacity: 1, y: 0, duration: 0.5 },
-          "-=0.3"
+          "-=0.3",
         );
     }, sectionRef);
 
