@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import WaitingRoomClient from "@/app/waiting/(components)/WaitingRoomClient";
+import WaitingRoomClient from "@/app/room/waiting/(components)/WaitingRoomClient";
 
 export const metadata: Metadata = {
   title: "Waiting Room · Virtual Booth Step 3 | Miles Apart",
