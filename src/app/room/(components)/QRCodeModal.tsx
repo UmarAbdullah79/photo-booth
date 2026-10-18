@@ -102,7 +102,7 @@ export const QRCodeModal: React.FC<QRCodeModalProps> = ({
         {/* QR Code Container */}
         <div className="my-4 p-3 bg-linear-to-b from-[#FFFDFD] to-[#FFF5F7] rounded-2xl border border-border-primary/80 inline-block shadow-inner">
           {qrDataUrl ? (
-            <img
+            <Image
               src={qrDataUrl}
               alt={`QR Code for room code ${code}`}
               className="w-48 h-48 sm:w-56 sm:h-56 mx-auto rounded-xl object-contain bg-white p-2 border border-border-soft"

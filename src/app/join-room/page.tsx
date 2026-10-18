@@ -203,7 +203,7 @@ export default function EnterRoomCodePage() {
                 {/* Replace with <video> or next/image for the real feed */}
                 <div className="relative flex aspect-3/4 items-center justify-center text-6xl">
                   <Image
-                    src="/images/logo.png"
+                    src="/images/logo-2.svg"
                     alt=""
                     fill
                     className="object-center object-contain"

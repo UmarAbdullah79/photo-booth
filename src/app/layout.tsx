@@ -30,6 +30,9 @@ export const metadata: Metadata = {
     description: "Two People. Two Cameras. One Photo.",
     type: "website",
   },
+  icons: {
+    icon: "/images/logo-1.svg",
+  },
 };
 
 export default function RootLayout({
@@ -39,7 +42,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${dmSans.variable} scroll-smooth`}>
-      <body className="min-h-screen flex flex-col font-sans bg-[#FFF9F7] text-[#292326] antialiased selection:bg-[#FFE0E8] selection:text-[#C93E5C]">
+      <body className="min-h-screen flex flex-col font-sans bg-cream text-primary-text antialiased selection:bg-pastel-pink selection:text-coral-dark">
         <Navbar />
         <div className="flex-1 flex flex-col">{children}</div>
         <Footer />
