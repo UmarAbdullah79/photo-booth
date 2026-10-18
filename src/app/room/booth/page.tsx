@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import MainBoothClient from "@/app/booth/(components)/MainBoothClient";
+import MainBoothClient from "@/app/room/booth/(components)/MainBoothClient";
 
 export const metadata: Metadata = {
   title: "Main Photo Booth · Two Hearts Haru Film | Miles Apart",
